@@ -20,35 +20,34 @@ const Home = (props) => {
       "px";
     props.call(navbar.current.offsetHeight);
     toggleHam.current.style.left = -toggleHam.current.offsetWidth + "px";
-    window.onscroll = function () {
-      toggleHam.current.classList.remove("slideIn");
-      // console.log(toggleHam.current.offsetWidth);
-      if (window.scrollY >= nav.current.offsetHeight) {
-        navbar.current.classList.add("fixed");
-        toggleHam.current.classList.add("fixed2");
-        toggleHam.current.style.top = navbar.current.offsetHeight + "px";
-        toggleHam.current.style.height =
-          window.innerHeight - navbar.current.offsetHeight + "px";
-      } else {
-        navbar.current.classList.remove("fixed");
-        toggleHam.current.classList.remove("fixed2");
-        toggleHam.current.style.top =
-          nav.current.offsetHeight + navbar.current.offsetHeight + "px";
-        toggleHam.current.style.height =
-          window.innerHeight -
-          (navbar.current.offsetHeight + nav.current.offsetHeight) +
-          "px";
-      }
-    };
-    function toggleExt(e) {
+  });
+  function toggleExt(e) {
     if (toggleHam.current.classList.contains("slideIn")) {
       toggleHam.current.classList.remove("slideIn");
     } else {
       toggleHam.current.classList.add("slideIn");
     }
   }
-  });
-  
+  window.onscroll = function () {
+    toggleHam.current.classList.remove("slideIn");
+    // console.log(toggleHam.current.offsetWidth);
+    if (window.scrollY >= nav.current.offsetHeight) {
+      navbar.current.classList.add("fixed");
+      toggleHam.current.classList.add("fixed2");
+      toggleHam.current.style.top = navbar.current.offsetHeight + "px";
+      toggleHam.current.style.height =
+        window.innerHeight - navbar.current.offsetHeight + "px";
+    } else {
+      navbar.current.classList.remove("fixed");
+      toggleHam.current.classList.remove("fixed2");
+      toggleHam.current.style.top =
+        nav.current.offsetHeight + navbar.current.offsetHeight + "px";
+      toggleHam.current.style.height =
+        window.innerHeight -
+        (navbar.current.offsetHeight + nav.current.offsetHeight) +
+        "px";
+    }
+  };
 
   return (
     <>
@@ -169,17 +168,7 @@ const Home = (props) => {
       dolor sit amet consectetur adipisicing elit. Consectetur magni dicta
       repudiandae tenetur nostrum veritatis enim aliquam ullam doloremque totam
       architecto dignissimos, impedit blanditiis commodi error at voluptates
-      eligendi quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Officia aspernatur assumenda provident magnam fugiat quis praesentium aut
-      laboriosam, culpa odio corporis optio, eligendi voluptate quod! Labore
-      nobis fugit voluptates est modi totam, corrupti distinctio non enim
-      nesciunt excepturi dicta assumenda error! Veniam nobis sunt nisi maiores
-      perspiciatis laudantium molestiae vitae impedit. Expedita qui consectetur
-      iure dolorum soluta! Animi sapiente placeat eum qui alias nobis,
-      praesentium provident, voluptate laudantium at quia nesciunt ipsam tempora
-      explicabo repellendus dicta? Laboriosam omnis quibusdam recusandae
-      expedita, fugit laborum numquam, non et quisquam ab esse nulla facilis
-      quae vitae pariatur saepe beatae, nisi sint dolorem a?
+      eligendi quos.
     </>
   );
 };
