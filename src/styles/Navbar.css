@@ -176,14 +176,14 @@
   }
   .loginSign {
     margin: 10px;
-    font-size: 15px;
+    font-size: 17px;
   }
   .searchBar input {
     padding: 5px;
     font-size: 15px;
     padding-left: 15px;
     width: 250px;
-    height: 30px;
+    height: 40px;
   }
   .hamburgerExt {
     width: 50%;
