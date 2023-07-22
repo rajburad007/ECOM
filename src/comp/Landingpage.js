@@ -71,7 +71,7 @@ const Landingpage = () => {
 
         <img src={arrowR} alt="" className="rightArrow1" onClick={rightSlide} />
       </div> */}
-      <div className="todaysDeal">
+      {/* <div className="todaysDeal">
         <div className="heading">
           <h2>Today's Deal</h2>
         </div>
@@ -205,8 +205,8 @@ const Landingpage = () => {
           </div>
           <img src={arrowR} alt="" className="arrowR2" onClick={slideRight2} />
         </div>
-      </div>
-      <Footer />
+      </div> */}
+      {/* <Footer /> */}
     </>
   );
 };
