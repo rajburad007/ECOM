@@ -41,13 +41,14 @@ const Home = (props) => {
       }
     };
     function toggleExt(e) {
-      if (toggleHam.current.classList.contains("slideIn")) {
-        toggleHam.current.classList.remove("slideIn");
-      } else {
-        toggleHam.current.classList.add("slideIn");
-      }
+    if (toggleHam.current.classList.contains("slideIn")) {
+      toggleHam.current.classList.remove("slideIn");
+    } else {
+      toggleHam.current.classList.add("slideIn");
     }
+  }
   });
+  
 
   return (
     <>
