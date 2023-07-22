@@ -27,11 +27,17 @@ const Home = (props) => {
         navbar.current.classList.add("fixed");
         toggleHam.current.classList.add("fixed2");
         toggleHam.current.style.top = navbar.current.offsetHeight + "px";
+        toggleHam.current.style.height =
+          window.innerHeight - navbar.current.offsetHeight + "px";
       } else {
         navbar.current.classList.remove("fixed");
         toggleHam.current.classList.remove("fixed2");
         toggleHam.current.style.top =
           nav.current.offsetHeight + navbar.current.offsetHeight + "px";
+        toggleHam.current.style.height =
+          window.innerHeight -
+          (navbar.current.offsetHeight + nav.current.offsetHeight) +
+          "px";
       }
     };
   });
@@ -148,7 +154,31 @@ const Home = (props) => {
       Perferendis et eveniet quasi laudantium sit doloremque nostrum sed sequi
       nulla asperiores, molestias ratione, nihil tenetur delectus corporis fugit
       alias maxime praesentium. Fugit voluptas minima beatae placeat rem sint
-      ipsa, repellat maxime.
+      ipsa, repellat maxime. Lorem ipsum, dolor sit amet consectetur adipisicing
+      elit. Consequuntur, laudantium distinctio labore, ut ab quam nulla
+      doloremque cupiditate illo dolorem eveniet maxime deleniti illum modi
+      perspiciatis quae repudiandae sequi perferendis et dolorum assumenda,
+      recusandae in fuga numquam. Labore hic dignissimos facilis aliquid est
+      aspernatur voluptatum ratione fuga sint eum nostrum illum sapiente veniam
+      a, asperiores odit atque quis deserunt dolore. Ad, possimus quod
+      blanditiis beatae vero iste sunt repellat laboriosam rerum accusamus
+      sapiente temporibus, dolore debitis eius obcaecati? Eaque vero repellat
+      fuga omnis enim, voluptas tempore blanditiis eum recusandae velit alias
+      ratione placeat? Hic corrupti minima totam in illo omnis. Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Consectetur magni dicta
+      repudiandae tenetur nostrum veritatis enim aliquam ullam doloremque totam
+      architecto dignissimos, impedit blanditiis commodi error at voluptates
+      eligendi quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Officia aspernatur assumenda provident magnam fugiat quis praesentium aut
+      laboriosam, culpa odio corporis optio, eligendi voluptate quod! Labore
+      nobis fugit voluptates est modi totam, corrupti distinctio non enim
+      nesciunt excepturi dicta assumenda error! Veniam nobis sunt nisi maiores
+      perspiciatis laudantium molestiae vitae impedit. Expedita qui consectetur
+      iure dolorum soluta! Animi sapiente placeat eum qui alias nobis,
+      praesentium provident, voluptate laudantium at quia nesciunt ipsam tempora
+      explicabo repellendus dicta? Laboriosam omnis quibusdam recusandae
+      expedita, fugit laborum numquam, non et quisquam ab esse nulla facilis
+      quae vitae pariatur saepe beatae, nisi sint dolorem a?
     </>
   );
 };
