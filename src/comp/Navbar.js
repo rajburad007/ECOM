@@ -40,14 +40,14 @@ const Home = (props) => {
           "px";
       }
     };
-  });
-  function toggleExt(e) {
-    if (toggleHam.current.classList.contains("slideIn")) {
-      toggleHam.current.classList.remove("slideIn");
-    } else {
-      toggleHam.current.classList.add("slideIn");
+    function toggleExt(e) {
+      if (toggleHam.current.classList.contains("slideIn")) {
+        toggleHam.current.classList.remove("slideIn");
+      } else {
+        toggleHam.current.classList.add("slideIn");
+      }
     }
-  }
+  });
 
   return (
     <>
