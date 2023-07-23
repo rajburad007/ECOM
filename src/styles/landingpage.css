@@ -55,11 +55,8 @@
   overflow: hidden;
   align-items: center;
   flex-direction: column;
-  margin: 15px;
-  padding: 100px;
 }
 .heading {
-  margin-bottom: 20px;
 }
 .slider {
   display: flex;
@@ -100,27 +97,42 @@
 .arrowL2 {
   margin-right: 10px;
 }
-@media screen and (max-width: 1300px) and (min-width: 900px) {
+@media screen and (max-width: 1300px) and (min-width: 1100px) {
+  .sliding {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1100px) and (min-width: 1000px) {
+  .sliding {
+    width: 900px;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 900px) {
+  .sliding {
+    width: 800px;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 800px) {
   .sliding {
     width: 700px;
   }
 }
-@media screen and (max-width: 900px) and (min-width: 600px) {
+@media screen and (max-width: 800px) and (min-width: 600px) {
   .sliding {
     width: 500px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (min-width: 500px) {
   .todaysDeal,
   .seasonSale {
     padding: 0;
   }
   .sliding {
-    width: 200px;
+    width: 450px;
   }
   .sliding div img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
   .arrowR1,
   .arrowL1,
@@ -128,6 +140,31 @@
   .arrowL2 {
     width: 10px;
     margin: 2px;
+  }
+  .slider {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .todaysDeal,
+  .seasonSale {
+    padding: 0;
+  }
+  .sliding {
+    width: 300px;
+    overflow: scroll;
+  }
+  .sliding div img {
+    width: 120px;
+    height: 120px;
+  }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    display: none;
   }
   .slider {
     padding: 0;
