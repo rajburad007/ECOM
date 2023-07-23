@@ -59,6 +59,7 @@
   margin-bottom: 50px;
 }
 .heading {
+  white-space: nowrap;
 }
 .slider {
   display: flex;
