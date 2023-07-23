@@ -155,6 +155,7 @@
   .sliding {
     width: 400px;
     overflow: scroll;
+    margin: 10px;
   }
   .sliding div img {
     width: 180px;
