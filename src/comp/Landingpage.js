@@ -5,7 +5,7 @@ import "../styles/landingpage.css";
 import arrowL from "../icons/arrowL.png";
 import arrowR from "../icons/arrowR.png";
 import slider1 from "../icons/slider1.png";
-import slider2 from "../icons/slider2.png";
+import slider2img from "../icons/slider2.png";
 import slider3 from "../icons/slider3.png";
 import men from "../icons/men.png";
 import women from "../icons/women.png";
@@ -16,6 +16,7 @@ import skinCare from "../icons/skincare.png";
 const Landingpage = () => {
   let [height, setHeight] = useState(0);
   let slider = useRef();
+  let mainSlide = useRef();
   let slider2 = useRef();
   function callBack(e) {
     setHeight(e);
@@ -43,6 +44,12 @@ const Landingpage = () => {
     setimgData(imgData);
     console.log(imgData);
   }
+  function slideLeftmain() {
+    mainSlide.current.scrollLeft -= mainSlide.current.offsetWidth + 50;
+  }
+  function slideRightmain() {
+    mainSlide.current.scrollLeft += mainSlide.current.offsetWidth + 50;
+  }
 
   function slideRight() {
     slider.current.scrollLeft += slider.current.offsetWidth;
@@ -59,18 +66,33 @@ const Landingpage = () => {
   return (
     <>
       <Navbar call={callBack} />
-      {/* <div className="mainsliderSection">
-        <img src={arrowL} className="leftArrow1" alt="" onClick={leftSlide} />
-
-        <img
-          src={require(`../icons/slider${imgData}.png`)}
-          width={"1000px"}
-          alt=""
-          className="headerImg"
-        />
-
-        <img src={arrowR} alt="" className="rightArrow1" onClick={rightSlide} />
-      </div> */}
+      <div className="mainsliderSection">
+        <div className="sliderMain" ref={mainSlide}>
+          <img
+            src={arrowL}
+            className="arrowL0"
+            alt=""
+            onClick={slideLeftmain}
+          />
+          <div className="slidingMain">
+            <div>
+              <img src={slider1} alt="" />
+            </div>
+            <div>
+              <img src={slider2img} alt="" />
+            </div>
+            <div>
+              <img src={slider3} alt="" />
+            </div>
+          </div>
+          <img
+            src={arrowR}
+            className="arrowR0"
+            alt=""
+            onClick={slideRightmain}
+          />
+        </div>
+      </div>
       <div className="todaysDeal">
         <div className="heading">
           <h2>Today's Deal</h2>
