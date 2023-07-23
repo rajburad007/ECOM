@@ -153,12 +153,12 @@
     padding: 0;
   }
   .sliding {
-    width: 300px;
+    width: 400px;
     overflow: scroll;
   }
   .sliding div img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
   .arrowR1,
   .arrowL1,
