@@ -55,6 +55,8 @@
   overflow: hidden;
   align-items: center;
   flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .heading {
 }
@@ -101,25 +103,59 @@
   .sliding {
     width: 1000px;
   }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    width: 10px;
+    margin: 2px;
+  }
 }
 @media screen and (max-width: 1100px) and (min-width: 1000px) {
   .sliding {
     width: 900px;
+  }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    width: 15px;
+    margin: 2px;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 900px) {
   .sliding {
     width: 800px;
   }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    width: 15px;
+    margin: 2px;
+  }
 }
 @media screen and (max-width: 900px) and (min-width: 800px) {
   .sliding {
     width: 700px;
   }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    width: 15px;
+    margin: 2px;
+  }
 }
 @media screen and (max-width: 800px) and (min-width: 600px) {
   .sliding {
     width: 500px;
+  }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    width: 15px;
   }
 }
 @media screen and (max-width: 600px) and (min-width: 500px) {
@@ -141,11 +177,6 @@
     width: 10px;
     margin: 2px;
   }
-  .slider {
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
 }
 @media screen and (max-width: 500px) and (min-width: 400px) {
   .todaysDeal,
@@ -154,7 +185,9 @@
   }
   .sliding {
     width: 400px;
+
     overflow: scroll;
+    padding: 0px;
   }
   .sliding div img {
     width: 150px;
@@ -166,16 +199,13 @@
   .arrowL2 {
     display: none;
   }
-  .slider {
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
 }
 @media screen and (max-width: 400px) {
   .sliding {
     width: 280px;
     overflow: scroll;
+
+    padding: 0px;
   }
   .sliding div img {
     width: 100px;
