@@ -147,7 +147,7 @@
     padding-bottom: 10px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) and (min-width: 400px) {
   .todaysDeal,
   .seasonSale {
     padding: 0;
@@ -155,11 +155,10 @@
   .sliding {
     width: 400px;
     overflow: scroll;
-    margin: 10px;
   }
   .sliding div img {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
   }
   .arrowR1,
   .arrowL1,
@@ -171,5 +170,21 @@
     padding: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .sliding {
+    width: 280px;
+    overflow: scroll;
+  }
+  .sliding div img {
+    width: 100px;
+    height: 100px;
+  }
+  .arrowR1,
+  .arrowL1,
+  .arrowR2,
+  .arrowL2 {
+    display: none;
   }
 }
