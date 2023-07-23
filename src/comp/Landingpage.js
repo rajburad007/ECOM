@@ -59,7 +59,7 @@ const Landingpage = () => {
   return (
     <>
       <Navbar call={callBack} />
-      {/* <div className="mainsliderSection">
+      <div className="mainsliderSection">
         <img src={arrowL} className="leftArrow1" alt="" onClick={leftSlide} />
 
         <img
@@ -70,7 +70,7 @@ const Landingpage = () => {
         />
 
         <img src={arrowR} alt="" className="rightArrow1" onClick={rightSlide} />
-      </div> */}
+      </div>
       <div className="todaysDeal">
         <div className="heading">
           <h2>Today's Deal</h2>

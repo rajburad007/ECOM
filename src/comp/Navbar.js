@@ -122,53 +122,6 @@ const Home = (props) => {
           <h4>Mens</h4>
         </a>
       </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos error
-      voluptates laborum possimus iste tenetur eaque dolore numquam corporis
-      optio quod impedit dolorum doloremque, ullam at quas eius autem vel
-      aliquam beatae blanditiis animi id debitis. Velit, nisi. Quibusdam, ab!
-      Minima modi atque est. Possimus quisquam dolorum labore accusamus ab et
-      inventore doloremque qui debitis at, molestias, error incidunt
-      exercitationem corporis velit! Eum incidunt, nostrum ratione nobis
-      excepturi quibusdam! Ullam, nisi nesciunt eligendi quasi repellat itaque
-      sed, voluptates a est cupiditate, dolorum deserunt saepe nobis optio eius
-      quibusdam expedita. Dolores itaque nulla quae repellat doloremque iusto
-      cupiditate asperiores consectetur? Lorem, ipsum dolor sit amet consectetur
-      adipisicing elit. Nostrum laboriosam sit suscipit eum doloribus,
-      exercitationem voluptatum totam ad! Unde reprehenderit omnis, sit nobis
-      voluptas cum provident corrupti itaque eligendi modi obcaecati
-      perspiciatis. Animi officiis suscipit sit inventore accusantium natus
-      ipsa, dolorum ipsam possimus labore, cumque beatae eaque facere, saepe
-      maxime harum est id soluta magni praesentium temporibus! Repellendus quos
-      error quaerat nam. Explicabo fuga velit nobis provident molestiae, vitae
-      nisi eum aspernatur temporibus id tempora quidem excepturi perferendis
-      reiciendis adipisci, recusandae enim accusantium, at facere consectetur
-      unde! Dolorum possimus ab eius ducimus ullam sapiente eveniet,
-      reprehenderit laudantium similique earum officia doloremque eligendi,
-      temporibus nesciunt rem aspernatur labore est sit nostrum! Aliquam, fuga
-      cum odio blanditiis tempora non veniam modi quasi fugit accusantium in
-      delectus repellat libero atque facere praesentium, adipisci quis commodi
-      inventore optio assumenda maiores harum. Doloremque accusamus corrupti
-      enim tempora ut, quisquam nam quos, suscipit nesciunt repudiandae
-      repellendus ipsa laboriosam ratione minus cum debitis expedita reiciendis
-      laudantium ducimus magnam rerum veniam odit. Rerum sint numquam aut!
-      Perferendis et eveniet quasi laudantium sit doloremque nostrum sed sequi
-      nulla asperiores, molestias ratione, nihil tenetur delectus corporis fugit
-      alias maxime praesentium. Fugit voluptas minima beatae placeat rem sint
-      ipsa, repellat maxime. Lorem ipsum, dolor sit amet consectetur adipisicing
-      elit. Consequuntur, laudantium distinctio labore, ut ab quam nulla
-      doloremque cupiditate illo dolorem eveniet maxime deleniti illum modi
-      perspiciatis quae repudiandae sequi perferendis et dolorum assumenda,
-      recusandae in fuga numquam. Labore hic dignissimos facilis aliquid est
-      aspernatur voluptatum ratione fuga sint eum nostrum illum sapiente veniam
-      a, asperiores odit atque quis deserunt dolore. Ad, possimus quod
-      blanditiis beatae vero iste sunt repellat laboriosam rerum accusamus
-      sapiente temporibus, dolore debitis eius obcaecati? Eaque vero repellat
-      fuga omnis enim, voluptas tempore blanditiis eum recusandae velit alias
-      ratione placeat? Hic corrupti minima totam in illo omnis. Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Consectetur magni dicta
-      repudiandae tenetur nostrum veritatis enim aliquam ullam doloremque totam
-      architecto dignissimos, impedit blanditiis commodi error at voluptates
-      eligendi quos.
     </>
   );
 };
