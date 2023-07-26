@@ -1,9 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "../styles/Navbar.css";
+import { Link } from "react-router-dom";
 import search from "../icons/searchIcon.png";
 import logo from "../icons/Logo.png";
 import hambuger from "../icons/hamburger.png";
-const Home = (props) => {
+import { GlobalInfo } from "../App.js";
+import cart from "../icons/cart.png";
+import profile from "../icons/profile.png";
+import wish from "../icons/wish.png";
+const Home = () => {
+  const { getData, data, category, getCategory, isLogin } =
+    useContext(GlobalInfo);
+  useEffect(() => {
+    if (isLogin) {
+      window.localStorage.setItem("isLogin", isLogin);
+    }
+  });
+
+  function createNavCategory(nameLink, name) {
+    return (
+      <Link to={`/${nameLink}`}>
+        <h4>{name}</h4>
+      </Link>
+    );
+  }
   let nav = useRef();
   let navEle = useRef();
   let navbar = useRef();
@@ -18,8 +38,28 @@ const Home = (props) => {
       window.innerHeight -
       (navbar.current.offsetHeight + nav.current.offsetHeight) +
       "px";
-    props.call(navbar.current.offsetHeight);
+
     toggleHam.current.style.left = -toggleHam.current.offsetWidth + "px";
+    window.onscroll = function () {
+      toggleHam.current.classList.remove("slideIn");
+
+      if (window.scrollY >= nav.current.offsetHeight) {
+        navbar.current.classList.add("fixed");
+        toggleHam.current.classList.add("fixed2");
+        toggleHam.current.style.top = navbar.current.offsetHeight + "px";
+        toggleHam.current.style.height =
+          window.innerHeight - navbar.current.offsetHeight + "px";
+      } else {
+        navbar.current.classList.remove("fixed");
+        toggleHam.current.classList.remove("fixed2");
+        toggleHam.current.style.top =
+          nav.current.offsetHeight + navbar.current.offsetHeight + "px";
+        toggleHam.current.style.height =
+          window.innerHeight -
+          (navbar.current.offsetHeight + nav.current.offsetHeight) +
+          "px";
+      }
+    };
   });
   function toggleExt(e) {
     if (toggleHam.current.classList.contains("slideIn")) {
@@ -28,35 +68,15 @@ const Home = (props) => {
       toggleHam.current.classList.add("slideIn");
     }
   }
-  window.onscroll = function () {
-    toggleHam.current.classList.remove("slideIn");
-    // console.log(toggleHam.current.offsetWidth);
-    if (window.scrollY >= nav.current.offsetHeight) {
-      navbar.current.classList.add("fixed");
-      toggleHam.current.classList.add("fixed2");
-      toggleHam.current.style.top = navbar.current.offsetHeight + "px";
-      toggleHam.current.style.height =
-        window.innerHeight - navbar.current.offsetHeight + "px";
-    } else {
-      navbar.current.classList.remove("fixed");
-      toggleHam.current.classList.remove("fixed2");
-      toggleHam.current.style.top =
-        nav.current.offsetHeight + navbar.current.offsetHeight + "px";
-      toggleHam.current.style.height =
-        window.innerHeight -
-        (navbar.current.offsetHeight + nav.current.offsetHeight) +
-        "px";
-    }
-  };
 
   return (
     <>
       <div className="nav" ref={nav}>
         <div className="navele" ref={navEle}>
           <div className="logo">
-            <a href="">
+            <Link to="/">
               <img src={logo} alt="" />
-            </a>
+            </Link>
           </div>
           <div className="searchBar">
             <input
@@ -69,58 +89,69 @@ const Home = (props) => {
               <img src={search} alt="" />
             </a>
           </div>
-          <div className="loginSign">
-            <a href="" className="login">
-              LOGIN
-            </a>
-            <a href="" className="signin">
-              SIGNIN
-            </a>
-          </div>
+          {isLogin ? (
+            isLogin ? (
+              <div className="bar3">
+                <img width={"30px"} src={cart} alt="" />
+                <img width={"30px"} src={wish} alt="" />
+                <img width={"30px"} src={profile} alt="" />
+              </div>
+            ) : (
+              <div className="loginSign">
+                <Link to="/login" className="login">
+                  LOGIN
+                </Link>
+                <Link to="/login" className="signin">
+                  SIGNIN
+                </Link>
+              </div>
+            )
+          ) : window.localStorage.getItem("isLogin") ? (
+            <div className="bar3">
+              <Link to="/cart">
+                <img width={"30px"} src={cart} alt="" />
+              </Link>
+              <img width={"30px"} src={wish} alt="" />
+              <img width={"30px"} src={profile} alt="" />
+            </div>
+          ) : (
+            <div className="loginSign">
+              <Link to="/login" className="login">
+                LOGIN
+              </Link>
+              <Link to="/login" className="signin">
+                SIGNIN
+              </Link>
+            </div>
+          )}
         </div>
       </div>
+
       <div className="navbar" ref={navbar}>
         <div className="navele2" ref={navEle2}>
           <img
             src={hambuger}
             ref={hamburger}
+            className="hamburger"
             alt=""
             width="25px"
             onClick={toggleExt}
           />
-          <h5>Best Seller</h5>
-          <h5>Deal of the Day</h5>
-          <h5>All time Sale</h5>
-          <h5>Season Sale</h5>
-          <h5>Track Order</h5>
+          {createNavCategory("smartphones", "Smartphones")}
+          {createNavCategory("laptops", "Laptops")}
+          {createNavCategory("fragrances", "Fragrances")}
+          {createNavCategory("groceries", "Groceries")}
+          {createNavCategory("skincare", "Skincare")}
+          {createNavCategory("home-decoration", "Home-decoration")}
         </div>
       </div>
       <div className="hamburgerExt" ref={toggleHam}>
-        <a href="">
-          <h4>Smartphones</h4>
-        </a>
-        <a href="">
-          <h4>Laptops</h4>
-        </a>
-        <a href="">
-          <h4>Fragrance</h4>
-        </a>
-        <a href="">
-          <h4>Skincare</h4>
-        </a>
-        <a href="">
-          <h4>Groceries</h4>
-        </a>
-
-        <a href="">
-          <h4>Furniture</h4>
-        </a>
-        <a href="">
-          <h4>Womens</h4>
-        </a>
-        <a href="">
-          <h4>Mens</h4>
-        </a>
+        {createNavCategory("smartphones", "Smartphones")}
+        {createNavCategory("laptops", "Laptops")}
+        {createNavCategory("fragrances", "Fragrances")}
+        {createNavCategory("groceries", "Groceries")}
+        {createNavCategory("skincare", "Skincare")}
+        {createNavCategory("home-decoration", "Home-decoration")}
       </div>
     </>
   );
