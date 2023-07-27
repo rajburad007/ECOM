@@ -1,4 +1,4 @@
-.login {
+.loginSec {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ form {
   align-items: center;
   flex-direction: column;
 }
-.login .logo {
+.loginSec .logo {
   padding: 10px;
 }
 form input,
@@ -22,12 +22,13 @@ form button {
   margin: 10px;
   width: 250px;
 }
-form button {
+
+.submitBtn {
   border: 1px solid black;
   color: var(--black);
   background: var(--lightGreen);
   cursor: pointer;
 }
-form button:hover {
+.submitBtn:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.453);
 }

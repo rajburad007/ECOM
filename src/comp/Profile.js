@@ -15,8 +15,7 @@ const Profile = () => {
         <div className="personalDetail">
           <h2>Personal Detail</h2>
           <div className="name">
-            {" "}
-            <h3>Name</h3>:<p>{window.localStorage.getItem("name")}</p>
+            <h3>Name</h3>:<p>{window.localStorage.getItem("userName")}</p>
           </div>
           <div className="email">
             <h3>Email</h3>:<p> {window.localStorage.getItem("email")}</p>
@@ -38,13 +37,15 @@ const Profile = () => {
         </div>
         <div className="trackOrder">
           <h3>Track Order</h3>
-          {JSON.parse(window.localStorage.getItem("trackOrder")).map((e) => {
-            return (
-              <div>
-                {e.title} <br />
-              </div>
-            );
-          })}
+          {window.localStorage.getItem("trackOrder")
+            ? JSON.parse(window.localStorage.getItem("trackOrder")).map((e) => {
+                return (
+                  <div>
+                    {e.title} <br />
+                  </div>
+                );
+              })
+            : "no order to track"}
         </div>
         <div className="logOut">
           <Link to="/">

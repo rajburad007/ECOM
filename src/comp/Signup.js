@@ -18,7 +18,7 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <div className="login">
+      <div className="loginSec">
         <div className="logo">
           <img src={logo} alt="" />
         </div>
@@ -29,7 +29,7 @@ const Signup = () => {
             placeholder="Name"
             onChange={function () {
               window.localStorage.setItem(
-                "name",
+                "userName",
                 userName.current.value.trim()
               );
             }}
@@ -45,7 +45,6 @@ const Signup = () => {
             ref={email}
           />
           <input
-            required
             type="password"
             placeholder="Password"
             onChange={function () {
@@ -58,7 +57,7 @@ const Signup = () => {
           />
 
           <Link to="/">
-            <button type="submit" onClick={isTrue}>
+            <button className="submitBtn" type="submit" onClick={isTrue}>
               Submit
             </button>
           </Link>

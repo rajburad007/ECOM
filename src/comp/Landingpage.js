@@ -5,7 +5,7 @@ import { GlobalInfo } from "../App.js";
 import ProductTile from "./ProductTile.js";
 const Landingpage = () => {
   const { getData, data, category, getDataCategory } = useContext(GlobalInfo);
-  console.log(data);
+
   return (
     <>
       <div className="landingPage">
