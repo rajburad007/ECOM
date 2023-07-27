@@ -24,6 +24,7 @@ const Signup = () => {
         </div>
         <form action="">
           <input
+            required
             type="text"
             placeholder="Name"
             onChange={function () {
@@ -35,6 +36,7 @@ const Signup = () => {
             ref={userName}
           />
           <input
+            required
             type="email"
             placeholder="Email"
             onChange={function () {
@@ -43,6 +45,7 @@ const Signup = () => {
             ref={email}
           />
           <input
+            required
             type="password"
             placeholder="Password"
             onChange={function () {
