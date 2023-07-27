@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  min-height: 60vh;
 }
 .rating {
   display: flex;
@@ -31,8 +32,8 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.219);
   transform: scale(1.1);
 }
-@media screen and(max-width:520px) {
+@media screen and (max-width: 520px) {
   .productImg img {
-    width: 100px;
+    width: 400px;
   }
 }

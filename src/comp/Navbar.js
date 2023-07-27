@@ -9,11 +9,12 @@ import cart from "../icons/cart.png";
 import profile from "../icons/profile.png";
 import wish from "../icons/wish.png";
 const Home = () => {
-  const { getData, data, category, getCategory, isLogin } =
+  const { getData, data, category, getCategory, isLogin, setLogin } =
     useContext(GlobalInfo);
   useEffect(() => {
     if (isLogin) {
       window.localStorage.setItem("isLogin", isLogin);
+      window.location.reload();
     }
   });
 
@@ -111,8 +112,12 @@ const Home = () => {
               <Link to="/cart">
                 <img width={"30px"} src={cart} alt="" />
               </Link>
-              <img width={"30px"} src={wish} alt="" />
-              <img width={"30px"} src={profile} alt="" />
+              <Link to="/wishlist">
+                <img width={"30px"} src={wish} alt="" />
+              </Link>
+              <Link to="/profile">
+                <img width={"30px"} src={profile} alt="" />
+              </Link>
             </div>
           ) : (
             <div className="loginSign">
@@ -137,6 +142,9 @@ const Home = () => {
             width="25px"
             onClick={toggleExt}
           />
+          <Link to={`/`}>
+            <h4>Home</h4>
+          </Link>
           {createNavCategory("smartphones", "Smartphones")}
           {createNavCategory("laptops", "Laptops")}
           {createNavCategory("fragrances", "Fragrances")}
@@ -146,6 +154,9 @@ const Home = () => {
         </div>
       </div>
       <div className="hamburgerExt" ref={toggleHam}>
+        <Link to={`/`}>
+          <h4>Home</h4>
+        </Link>
         {createNavCategory("smartphones", "Smartphones")}
         {createNavCategory("laptops", "Laptops")}
         {createNavCategory("fragrances", "Fragrances")}

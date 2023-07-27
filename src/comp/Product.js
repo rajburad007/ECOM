@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 import star from "../icons/star.png";
 import { GlobalInfo } from "../App.js";
 const Product = (props) => {
-  const { getData, data, category, getDataCatgeory, isLogin, arr } =
+  const { getData, data, category, getDataCatgeory, isLogin, arr, wish } =
     useContext(GlobalInfo);
 
   function addToCart() {
     arr.push(props.product);
     window.localStorage.setItem("arr", JSON.stringify(arr));
+  }
+  function addToWish() {
+    wish.push(props.product);
+    window.localStorage.setItem("wish", JSON.stringify(wish));
   }
 
   return (
@@ -47,7 +51,15 @@ const Product = (props) => {
               <button className="cartBtn">Add to cart</button>
             </Link>
           )}
-          <button className="wishBtn">Add to wishlist</button>
+          {window.localStorage.getItem("isLogin") ? (
+            <button className="cartBtn" onClick={addToWish}>
+              Add to Wishlist
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="cartBtn">Add to Wishlist</button>
+            </Link>
+          )}
         </div>
       </div>
       <Footer />

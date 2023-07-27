@@ -145,6 +145,7 @@
 }
 .navele2 a {
   color: var(--black);
+  text-decoration: none;
 }
 @media screen and (max-width: 740px) {
   .navele {
@@ -224,4 +225,5 @@
 
 .bar3 img {
   margin-left: 10px;
+  cursor: pointer;
 }

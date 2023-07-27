@@ -1,8 +1,10 @@
 import "./App.css";
 import "./styles/landingpage.css";
+import Wishlist from "./comp/Wishlist";
 import Footer from "./comp/Footer.js";
 import Navbar from "./comp/Navbar.js";
 import Landingpage from "./comp/Landingpage.js";
+import Profile from "./comp/Profile";
 import Product from "./comp/Product.js";
 import Signup from "./comp/Signup";
 import Cart from "./comp/Cart.js";
@@ -12,6 +14,7 @@ import SpecCategory from "./comp/SpecCategory";
 
 export const GlobalInfo = createContext();
 function App() {
+  let wish = [];
   let arr = [];
   var [isLogin, setLogin] = useState();
   const [data, setData] = useState();
@@ -63,6 +66,8 @@ function App() {
           isLogin: isLogin,
           setLogin: setLogin,
           arr: arr,
+          wish,
+          wish,
         }}
       >
         <BrowserRouter>
@@ -101,6 +106,17 @@ function App() {
             ) : (
               ""
             )}
+            {window.localStorage.getItem("isLogin") ? (
+              <Route path="/profile" element={<Profile />} />
+            ) : (
+              ""
+            )}
+            {window.localStorage.getItem("isLogin") ? (
+              <Route path="/wishlist" element={<Wishlist />} />
+            ) : (
+              ""
+            )}
+            <Route path="*" element="404error" />
           </Routes>
         </BrowserRouter>
       </GlobalInfo.Provider>

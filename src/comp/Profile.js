@@ -1,0 +1,66 @@
+import React, { useEffect, useRef } from "react";
+import Navbar from "./Navbar.js";
+import "../styles/Profile.css";
+import Footer from "./Footer.js";
+import { Link } from "react-router-dom";
+const Profile = () => {
+  let address = useRef();
+  useEffect(() => {
+    address.current.value = window.localStorage.getItem("address");
+  });
+  return (
+    <>
+      <Navbar />
+      <div className="profileSection">
+        <div className="personalDetail">
+          <h2>Personal Detail</h2>
+          <div className="name">
+            {" "}
+            <h3>Name</h3>:<p>{window.localStorage.getItem("name")}</p>
+          </div>
+          <div className="email">
+            <h3>Email</h3>:<p> {window.localStorage.getItem("email")}</p>
+          </div>
+          <div className="address">
+            <h3>Address</h3> :
+            <textarea
+              className="adddressArea"
+              name=""
+              id=""
+              cols="20"
+              rows="3"
+              ref={address}
+              onChange={() => {
+                window.localStorage.setItem("address", address.current.value);
+              }}
+            ></textarea>
+          </div>
+        </div>
+        <div className="trackOrder">
+          <h3>Track Order</h3>
+          {JSON.parse(window.localStorage.getItem("trackOrder")).map((e) => {
+            return (
+              <div>
+                {e.title} <br />
+              </div>
+            );
+          })}
+        </div>
+        <div className="logOut">
+          <Link to="/">
+            <button
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Logout
+            </button>
+          </Link>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default Profile;
