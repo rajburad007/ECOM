@@ -48,7 +48,9 @@ const Product = (props) => {
             </button>
           ) : (
             <Link to="/login">
-              <button className="cartBtn">Add to cart</button>
+              <button className="cartBtn" onClick={addToCart}>
+                Add to cart
+              </button>
             </Link>
           )}
           {window.localStorage.getItem("isLogin") ? (
@@ -57,7 +59,9 @@ const Product = (props) => {
             </button>
           ) : (
             <Link to="/login">
-              <button className="cartBtn">Add to Wishlist</button>
+              <button className="cartBtn" onClick={addToWish}>
+                Add to Wishlist
+              </button>
             </Link>
           )}
         </div>

@@ -18,7 +18,8 @@
   transform: scale(1.02);
 }
 .title,
-.price {
+.price,
+.rating {
   text-align: center;
   color: var(--black);
 }

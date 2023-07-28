@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, createContext, useState } from "react";
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  createContext,
+  useState,
+} from "react";
 import { GlobalInfo } from "../App.js";
 import Navbar from "./Navbar.js";
 import Footer from "./Footer.js";
@@ -6,8 +12,10 @@ import "../styles/speccategory.css";
 import ProductTile from "../comp/ProductTile.js";
 import star from "../icons/star.png";
 const SpecCategory = (props) => {
-  const { getData, data } = useContext(GlobalInfo);
-
+  const { getData, data, category, getDataCatgeory, isLogin, arr, wish } =
+    useContext(GlobalInfo);
+  let radio1 = useRef();
+  let radio2 = useRef();
   let categoryMap = data
     ? data
         .map((e) => {
@@ -17,24 +25,66 @@ const SpecCategory = (props) => {
           return e.category === props.cat;
         })
     : "";
-
+  let [n, setN] = useState(categoryMap);
+  useEffect(() => {
+    setN(categoryMap);
+    radio1.current.checked = false;
+    radio2.current.checked = false;
+  }, [props.cat]);
   return (
     <>
       <Navbar />
-      <div className="filters"></div>
+      <div className="filters">
+        <div
+          className={`filter1 `}
+          onClick={() => {
+            setN(
+              categoryMap.filter((e) => {
+                return e.rating > 4.5;
+              })
+            );
+          }}
+        >
+          <input ref={radio1} type="radio" id="starFirst" name="filterStar" />
+          <label htmlFor="starFirst">
+            &gt;4.5
+            <img src={star} alt="" />
+          </label>
+        </div>
+        <div
+          className={`filter1 `}
+          onClick={() => {
+            setN(
+              categoryMap.filter((e) => {
+                return e.rating > 4.3;
+              })
+            );
+          }}
+        >
+          <input ref={radio2} type="radio" id="secondStar" name="filterStar" />
+          <label htmlFor="secondStar">
+            &gt;4.3
+            <img src={star} alt="" />
+          </label>
+        </div>
+        <button
+          className="clearFilter"
+          onClick={() => {
+            radio1.current.checked = false;
+            radio2.current.checked = false;
+            setN(categoryMap);
+          }}
+        >
+          clear filter
+        </button>
+      </div>
 
-      <div className="productShow">
+      <div className="productShow ">
         <h1>{props.cat}</h1>
         <div className="productTiles">
-          {categoryMap
-            ? categoryMap.map((ele, i) => {
-                return (
-                  <ProductTile
-                    val={i}
-                    dataInfo={categoryMap}
-                    name={ele.title}
-                  />
-                );
+          {n
+            ? n.map((ele, i) => {
+                return <ProductTile val={i} dataInfo={n} name={ele.title} />;
               })
             : ""}
         </div>
