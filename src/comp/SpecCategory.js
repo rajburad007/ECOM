@@ -30,8 +30,11 @@ const SpecCategory = (props) => {
   let [n, setN] = useState(categoryMap);
   useEffect(() => {
     setN(categoryMap);
+
     radio1.current.checked = false;
     radio2.current.checked = false;
+    radio3.current.checked = false;
+    radio4.current.checked = false;
   }, [props.cat]);
   return (
     <>
@@ -73,7 +76,7 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            category
+            categoryMap
               .map((e) => {
                 return e.price;
               })
