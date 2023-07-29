@@ -57,7 +57,7 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             setN(
-              n.filter((e) => {
+              categoryMap.filter((e) => {
                 return e.rating > 4.3;
               })
             );
@@ -73,9 +73,10 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            n.map((e) => {
-              return e.price;
-            })
+            category
+              .map((e) => {
+                return e.price;
+              })
               .sort((a, b) => {
                 return a - b;
               })
@@ -105,9 +106,10 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            n.map((e) => {
-              return e.price;
-            })
+            categoryMap
+              .map((e) => {
+                return e.price;
+              })
               .sort((a, b) => {
                 return b - a;
               })
