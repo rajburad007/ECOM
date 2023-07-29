@@ -6,9 +6,7 @@ import { GlobalInfo } from "../App.js";
 import { Link } from "react-router-dom";
 const Profile = () => {
   let address = useRef();
-  useEffect(() => {
-    address.current.value = window.localStorage.getItem("address");
-  });
+
   const {
     getData,
     data,
@@ -34,18 +32,24 @@ const Profile = () => {
             <h3>Email</h3>:<p> {window.localStorage.getItem("email")}</p>
           </div>
           <div className="address">
-            <h3>Address</h3> :
-            <textarea
-              className="adddressArea"
-              name=""
-              id=""
-              cols="20"
-              rows="3"
-              ref={address}
-              onChange={() => {
-                window.localStorage.setItem("address", address.current.value);
-              }}
-            ></textarea>
+            {window.localStorage.getItem("address") ? (
+              <>
+                <h3>Address: </h3>
+                <p> {window.localStorage.getItem("address")}</p>
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+          <div class="phoneNumber">
+            {window.localStorage.getItem("phoneNumber") ? (
+              <>
+                <h3>Phone: </h3>
+                <p> {window.localStorage.getItem("phoneNumber")}</p>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="trackOrder">

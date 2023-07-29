@@ -8,6 +8,7 @@ import Profile from "./comp/Profile";
 import Product from "./comp/Product.js";
 import Signup from "./comp/Signup";
 import Cart from "./comp/Cart.js";
+import CheckOut from "./comp/CheckOut.js";
 import { useEffect, createContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SpecCategory from "./comp/SpecCategory";
@@ -127,7 +128,16 @@ function App() {
             <Route path="/login" element={<Signup />} />
 
             {isLogin || window.localStorage.getItem("isLogin") ? (
-              <Route path="/cart" element={<Cart />} />
+              <Route
+                path="/cart"
+                element={
+                  <>
+                    <Navbar />
+                    <Cart />
+                    <Footer />
+                  </>
+                }
+              />
             ) : (
               ""
             )}
@@ -141,8 +151,9 @@ function App() {
             ) : (
               ""
             )}
+
             {isLogin || window.localStorage.getItem("isLogin") ? (
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<CheckOut />} />
             ) : (
               ""
             )}
