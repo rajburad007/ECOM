@@ -22,6 +22,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
   cursor: pointer;
 }
 input[type="radio"] {
@@ -48,4 +49,15 @@ label {
   color: var(--black);
   background: var(--lightGreen);
   transition: all 0.1s ease-out;
+}
+@media screen and (max-width: 700px) {
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .clearFilter {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }

@@ -16,6 +16,8 @@ const SpecCategory = (props) => {
     useContext(GlobalInfo);
   let radio1 = useRef();
   let radio2 = useRef();
+  let radio3 = useRef();
+  let radio4 = useRef();
   let categoryMap = data
     ? data
         .map((e) => {
@@ -67,11 +69,79 @@ const SpecCategory = (props) => {
             <img src={star} alt="" />
           </label>
         </div>
+        <div
+          className={`filter1 `}
+          onClick={() => {
+            let a = [];
+            categoryMap
+              .map((e) => {
+                return e.price;
+              })
+              .sort((a, b) => {
+                return a - b;
+              })
+              .map((e) => {
+                return e;
+              })
+              .filter((i) => {
+                categoryMap.map((e) => {
+                  if (i == e.price) {
+                    a.push(e);
+                  }
+                });
+              });
+
+            setN(a);
+          }}
+        >
+          <input
+            ref={radio3}
+            type="radio"
+            id="pricefilter"
+            name="pricefilter"
+          />
+          <label htmlFor="pricefilter">&nbsp;low to high</label>
+        </div>
+        <div
+          className={`filter1 `}
+          onClick={() => {
+            let a = [];
+            categoryMap
+              .map((e) => {
+                return e.price;
+              })
+              .sort((a, b) => {
+                return b - a;
+              })
+              .map((e) => {
+                return e;
+              })
+              .filter((i) => {
+                categoryMap.map((e) => {
+                  if (i == e.price) {
+                    a.push(e);
+                  }
+                });
+              });
+
+            setN(a);
+          }}
+        >
+          <input
+            ref={radio4}
+            type="radio"
+            id="pricefilterrev"
+            name="pricefilter"
+          />
+          <label htmlFor="pricefilterrev">&nbsp; hight to low</label>
+        </div>
         <button
           className="clearFilter"
           onClick={() => {
             radio1.current.checked = false;
             radio2.current.checked = false;
+            radio3.current.checked = false;
+            radio4.current.checked = false;
             setN(categoryMap);
           }}
         >

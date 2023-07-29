@@ -14,7 +14,11 @@ import SpecCategory from "./comp/SpecCategory";
 
 export const GlobalInfo = createContext();
 function App() {
-  let [trackOrder, setTrackOrder] = useState([]);
+  let [trackOrder, setTrackOrder] = useState(
+    window.localStorage.getItem("trackOrder")
+      ? JSON.parse(window.localStorage.getItem("trackOrder"))
+      : []
+  );
 
   let wish = window.localStorage.getItem("wish")
     ? JSON.parse(window.localStorage.getItem("wish"))
@@ -121,9 +125,27 @@ function App() {
                 })
               : ""}
             <Route path="/login" element={<Signup />} />
-            {<Route path="/cart" element={<Cart />} />}
-            {<Route path="/profile" element={<Profile />} />}
-            {<Route path="/wishlist" element={<Wishlist />} />}
+
+            {isLogin || window.localStorage.getItem("isLogin") ? (
+              <Route path="/cart" element={<Cart />} />
+            ) : (
+              ""
+            )}
+            {isLogin || window.localStorage.getItem("isLogin") ? (
+              <Route path="/profile" element={<Profile />} />
+            ) : (
+              ""
+            )}
+            {isLogin || window.localStorage.getItem("isLogin") ? (
+              <Route path="/wishlist" element={<Wishlist />} />
+            ) : (
+              ""
+            )}
+            {isLogin || window.localStorage.getItem("isLogin") ? (
+              <Route path="/cart" element={<Cart />} />
+            ) : (
+              ""
+            )}
             <Route path="*" element="404error" />
           </Routes>
         </BrowserRouter>

@@ -30,6 +30,7 @@ const Home = () => {
   let hamburger = useRef();
   let navEle2 = useRef();
   useEffect(() => {
+    toggleHam.current.classList.remove("slideIn");
     nav.current.style.height = navEle.current.offsetHeight + "px";
     toggleHam.current.style.top =
       nav.current.offsetHeight + navbar.current.offsetHeight + "px";

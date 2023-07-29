@@ -13,10 +13,12 @@ const Slider = (props) => {
       setInterval(() => {
         slideRight();
       }, 6000);
-    }, 1000);
+    }, 5000);
   }, []);
   function slideRight() {
-    sliderSec.current.scrollLeft += imgWidth.current.offsetWidth;
+    return sliderSec.current
+      ? (sliderSec.current.scrollLeft += imgWidth.current.offsetWidth)
+      : "";
   }
   function slideLeft() {
     sliderSec.current.scrollLeft -= imgWidth.current.offsetWidth;
