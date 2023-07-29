@@ -8,10 +8,13 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { arr, setLen, trackOrder, setTrackOrder } = useContext(GlobalInfo);
   let [r, setr] = useState(window.localStorage.getItem("arr"));
-
+  let data = new Date();
   let cartFinalArr = r ? JSON.parse(r) : "";
   function checkOut() {
-    trackOrder.push(...arr);
+    trackOrder.push(
+      ...arr,
+      `${data.getDate()}/ ${data.getMonth()}/ ${data.getFullYear()} `
+    );
     // setTrackOrder(trackOrder.push(...arr));
     window.localStorage.setItem("trackOrder", JSON.stringify(trackOrder));
     arr.splice(0, arr.length);

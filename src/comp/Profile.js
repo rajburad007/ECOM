@@ -49,14 +49,10 @@ const Profile = () => {
           </div>
         </div>
         <div className="trackOrder">
-          <h3>Track Order</h3>
+          <h3 className="trackOrderHeader">Track Order</h3>
           {window.localStorage.getItem("trackOrder")
             ? JSON.parse(window.localStorage.getItem("trackOrder")).map((e) => {
-                return (
-                  <div>
-                    {e.title} <br />
-                  </div>
-                );
+                return <div>{e.title ? e.title : e}</div>;
               })
             : "no order to track"}
         </div>
