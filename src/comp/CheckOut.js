@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import Navbar from "../comp/Navbar.js";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -10,12 +10,11 @@ import COD from "../icons/COD.png";
 import Cart from "./Cart.js";
 import { GlobalInfo } from "../App.js";
 const CheckOut = () => {
-  function delEle(index) {
-    arr.splice(index, 1);
-    setLen(arr.length);
-    window.localStorage.setItem("arr", JSON.stringify(arr));
-    setr(window.localStorage.getItem("arr"));
-  }
+  let pay1 = useRef();
+  let pay2 = useRef();
+  let pay3 = useRef();
+  let [checkPay, setCheckPay] = useState(false);
+  useEffect(() => {}, []);
   let [add, setAdd] = useState(window.localStorage.getItem("address"));
   let [pnum, setPnum] = useState(window.localStorage.getItem("phoneNumber"));
   let address = useRef();
@@ -26,7 +25,8 @@ const CheckOut = () => {
   function checkOut() {
     if (
       window.localStorage.getItem("phoneNumber") &&
-      window.localStorage.getItem("address")
+      window.localStorage.getItem("address") &&
+      checkPay
     ) {
       trackOrder.push(
         ...arr,
@@ -85,22 +85,64 @@ const CheckOut = () => {
             }}
           />
           <div className="pay">
-            <input type="radio" name="payment" id="gpay" required />
-            <label htmlFor="gpay">
+            <input
+              onClick={() => {
+                setCheckPay(true);
+              }}
+              ref={pay1}
+              type="radio"
+              name="payment"
+              id="gpay"
+              required
+            />
+            <label
+              htmlFor="gpay"
+              onClick={() => {
+                setCheckPay(true);
+              }}
+            >
               <img width="50px" src={gpay} alt="" /> gpay
             </label>
           </div>
           <div className="pay">
-            <input type="radio" name="payment" id="rozarpay" required />
-            <label htmlFor="rozarpay">
+            <input
+              ref={pay2}
+              type="radio"
+              name="payment"
+              id="rozarpay"
+              required
+              onClick={() => {
+                setCheckPay(true);
+              }}
+            />
+            <label
+              htmlFor="rozarpay"
+              onClick={() => {
+                setCheckPay(true);
+              }}
+            >
               <img width="50px" src={razorpay} alt="" />
               rozarpay
             </label>
           </div>
           <div className="pay">
-            <input type="radio" name="payment" id="COD" required />
+            <input
+              onClick={() => {
+                setCheckPay(true);
+              }}
+              ref={pay3}
+              type="radio"
+              name="payment"
+              id="COD"
+              required
+            />
 
-            <label htmlFor="COD">
+            <label
+              htmlFor="COD"
+              onClick={() => {
+                setCheckPay(true);
+              }}
+            >
               <img width="70px" src={COD} alt="" />
               COD
             </label>
@@ -136,7 +178,7 @@ const CheckOut = () => {
         ) : (
           ""
         )}
-        {pnum && add ? (
+        {pnum && add && checkPay ? (
           <Link to="/cart">
             <input
               className="checkoutBtn"

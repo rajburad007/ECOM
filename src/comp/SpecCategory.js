@@ -73,10 +73,9 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            categoryMap
-              .map((e) => {
-                return e.price;
-              })
+            n.map((e) => {
+              return e.price;
+            })
               .sort((a, b) => {
                 return a - b;
               })
@@ -106,10 +105,9 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            categoryMap
-              .map((e) => {
-                return e.price;
-              })
+            n.map((e) => {
+              return e.price;
+            })
               .sort((a, b) => {
                 return b - a;
               })
