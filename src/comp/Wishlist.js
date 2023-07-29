@@ -6,8 +6,7 @@ import "../styles/Cart.css";
 import { Link } from "react-router-dom";
 import { GlobalInfo } from "../App.js";
 const Wishlist = () => {
-  const { getData, data, category, getDataCatgeory, isLogin, arr, wish } =
-    useContext(GlobalInfo);
+  const { arr, wish, setLen } = useContext(GlobalInfo);
   let [wishList, setWish] = useState(window.localStorage.getItem("wish"));
   let finalWishList = wishList ? JSON.parse(wishList) : "";
   function delEle(index) {
@@ -17,7 +16,9 @@ const Wishlist = () => {
   }
   function addToCart(e, i) {
     arr.push(e);
+    setLen(JSON.parse(window.localStorage.getItem("arr")).length + 2);
     window.localStorage.setItem("arr", JSON.stringify(arr));
+    setLen(arr.length);
     delEle(i);
   }
   return (

@@ -1,18 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../comp/Navbar.js";
 import Footer from "../comp/Footer.js";
+
 import "../styles/Product.css";
 import { Link } from "react-router-dom";
 import star from "../icons/star.png";
 import { GlobalInfo } from "../App.js";
 const Product = (props) => {
-  const { getData, data, category, getDataCatgeory, isLogin, arr, wish } =
-    useContext(GlobalInfo);
+  const {
+    data,
+
+    arr,
+    wish,
+    len,
+    setLen,
+  } = useContext(GlobalInfo);
 
   function addToCart() {
     arr.push(props.product);
     window.localStorage.setItem("arr", JSON.stringify(arr));
+    setLen(arr.length);
   }
+  console.log(arr.length);
   function addToWish() {
     wish.push(props.product);
     window.localStorage.setItem("wish", JSON.stringify(wish));
@@ -22,12 +31,8 @@ const Product = (props) => {
     <>
       <Navbar />
       <div className="productSection">
-        <div className="productImg">
-          <img
-            src={props.product ? props.product.images[2] : "loading"}
-            alt=""
-          />
-        </div>
+        <img src={props.product ? props.product.images[2] : "loading"} alt="" />
+
         <div className="productDesc">
           <h2>{data ? props.product.title : "loading"}</h2>
           <h4>${data ? props.product.price : "loading"}</h4>
@@ -44,7 +49,7 @@ const Product = (props) => {
         <div className="btns">
           {window.localStorage.getItem("isLogin") ? (
             <button className="cartBtn" onClick={addToCart}>
-              Add to cart
+              Add to cart {len}
             </button>
           ) : (
             <Link to="/login">

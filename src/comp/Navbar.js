@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import search from "../icons/searchIcon.png";
@@ -9,12 +9,10 @@ import cart from "../icons/cart.png";
 import profile from "../icons/profile.png";
 import wish from "../icons/wish.png";
 const Home = () => {
-  const { getData, data, category, getCategory, isLogin, setLogin } =
-    useContext(GlobalInfo);
+  const { arr, isLogin, len, setLen } = useContext(GlobalInfo);
   useEffect(() => {
     if (isLogin) {
       window.localStorage.setItem("isLogin", isLogin);
-      window.location.reload();
     }
   });
 
@@ -80,37 +78,21 @@ const Home = () => {
             </Link>
           </div>
           <div className="searchBar">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Serach..."
-            />
-            <a href="" className="search">
+            <input type="text" name="" id="" placeholder="search here!!" />
+            <a
+              href=""
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
               <img src={search} alt="" />
             </a>
           </div>
-          {isLogin ? (
-            isLogin ? (
-              <div className="bar3">
-                <img width={"30px"} src={cart} alt="" />
-                <img width={"30px"} src={wish} alt="" />
-                <img width={"30px"} src={profile} alt="" />
-              </div>
-            ) : (
-              <div className="loginSign">
-                <Link to="/login" className="login">
-                  LOGIN
-                </Link>
-                <Link to="/login" className="signin">
-                  SIGNIN
-                </Link>
-              </div>
-            )
-          ) : window.localStorage.getItem("isLogin") ? (
+          {isLogin || window.localStorage.getItem("isLogin") ? (
             <div className="bar3">
               <Link to="/cart">
                 <img width={"30px"} src={cart} alt="" />
+                {len}
               </Link>
               <Link to="/wishlist">
                 <img width={"30px"} src={wish} alt="" />
@@ -125,7 +107,7 @@ const Home = () => {
                 LOGIN
               </Link>
               <Link to="/login" className="signin">
-                SIGNIN
+                SIGNUP
               </Link>
             </div>
           )}

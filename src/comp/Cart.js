@@ -4,21 +4,24 @@ import Footer from "../comp/Footer.js";
 import { GlobalInfo } from "../App.js";
 import Bin from "../icons/bin.png";
 import "../styles/Cart.css";
-import { Link, renderMatches } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Cart = () => {
-  const { getData, data, category, getDataCatgeory, isLogin, arr } =
-    useContext(GlobalInfo);
+  const { arr, setLen, trackOrder, setTrackOrder } = useContext(GlobalInfo);
   let [r, setr] = useState(window.localStorage.getItem("arr"));
 
   let cartFinalArr = r ? JSON.parse(r) : "";
   function checkOut() {
-    window.localStorage.setItem("trackOrder", JSON.stringify(arr));
+    trackOrder.push(...arr);
+    // setTrackOrder(trackOrder.push(...arr));
+    window.localStorage.setItem("trackOrder", JSON.stringify(trackOrder));
     arr.splice(0, arr.length);
     window.localStorage.setItem("arr", JSON.stringify(arr));
     setr(window.localStorage.getItem("arr"));
+    setLen(arr.length);
   }
   function delEle(index) {
     arr.splice(index, 1);
+    setLen(arr.length);
     window.localStorage.setItem("arr", JSON.stringify(arr));
     setr(window.localStorage.getItem("arr"));
   }

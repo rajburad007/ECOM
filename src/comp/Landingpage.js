@@ -1,15 +1,19 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+
+import slider1 from "../icons/slider1.png";
+import slider2 from "../icons/slider2.png";
+import slider3 from "../icons/slider3.png";
 import "../styles/landingpage.css";
 import { GlobalInfo } from "../App.js";
+import Slider from "./Slider.js";
 import ProductTile from "./ProductTile.js";
 const Landingpage = () => {
-  const { getData, data, category, getDataCategory } = useContext(GlobalInfo);
+  const { data } = useContext(GlobalInfo);
 
   return (
     <>
       <div className="landingPage">
-        <div className="imageSlider"></div>
+        <Slider images={[slider1, slider2, slider3]} />
         <div className="todaysdeal">
           <div className="dealHeader">
             <h1>Todays Deal</h1>

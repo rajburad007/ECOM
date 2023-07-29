@@ -14,9 +14,26 @@ import SpecCategory from "./comp/SpecCategory";
 
 export const GlobalInfo = createContext();
 function App() {
-  let wish = [];
-  let arr = [];
-  var [isLogin, setLogin] = useState();
+  let [trackOrder, setTrackOrder] = useState([]);
+
+  let wish = window.localStorage.getItem("wish")
+    ? JSON.parse(window.localStorage.getItem("wish"))
+    : [];
+  let arr = window.localStorage.getItem("arr")
+    ? JSON.parse(window.localStorage.getItem("arr"))
+    : [];
+  let [len, setLen] = useState(arr ? arr.length : 0);
+  let [cartLen, setCartLen] = useState(
+    JSON.parse(window.localStorage.getItem("arr"))
+      ? JSON.parse(window.localStorage.getItem("arr")).length
+      : 0
+  );
+  let [wishLen, setWishLen] = useState(
+    JSON.parse(window.localStorage.getItem("wish"))
+      ? JSON.parse(window.localStorage.getItem("wish")).length
+      : 0
+  );
+  var [isLogin, setLogin] = useState(false);
   const [data, setData] = useState();
   let [category, setCategory] = useState();
   const url = `https://dummyjson.com/products`;
@@ -66,8 +83,11 @@ function App() {
           isLogin: isLogin,
           setLogin: setLogin,
           arr: arr,
-          wish,
-          wish,
+          wish: wish,
+          len: len,
+          setLen: setLen,
+          trackOrder: trackOrder,
+          setTrackOrder: setTrackOrder,
         }}
       >
         <BrowserRouter>
@@ -101,21 +121,9 @@ function App() {
                 })
               : ""}
             <Route path="/login" element={<Signup />} />
-            {window.localStorage.getItem("isLogin") ? (
-              <Route path="/cart" element={<Cart />} />
-            ) : (
-              ""
-            )}
-            {window.localStorage.getItem("isLogin") ? (
-              <Route path="/profile" element={<Profile />} />
-            ) : (
-              ""
-            )}
-            {window.localStorage.getItem("isLogin") ? (
-              <Route path="/wishlist" element={<Wishlist />} />
-            ) : (
-              ""
-            )}
+            {<Route path="/cart" element={<Cart />} />}
+            {<Route path="/profile" element={<Profile />} />}
+            {<Route path="/wishlist" element={<Wishlist />} />}
             <Route path="*" element="404error" />
           </Routes>
         </BrowserRouter>

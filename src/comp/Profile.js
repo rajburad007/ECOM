@@ -1,13 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import Navbar from "./Navbar.js";
 import "../styles/Profile.css";
 import Footer from "./Footer.js";
+import { GlobalInfo } from "../App.js";
 import { Link } from "react-router-dom";
 const Profile = () => {
   let address = useRef();
   useEffect(() => {
     address.current.value = window.localStorage.getItem("address");
   });
+  const {
+    getData,
+    data,
+    category,
+    getDataCatgeory,
+    isLogin,
+    setLogin,
+    arr,
+    setCartLen,
+    setWishLen,
+    trackOrder,
+  } = useContext(GlobalInfo);
   return (
     <>
       <Navbar />
@@ -51,6 +64,8 @@ const Profile = () => {
           <Link to="/">
             <button
               onClick={() => {
+                trackOrder.splice(0, trackOrder.length);
+                setLogin(false);
                 localStorage.clear();
               }}
             >
