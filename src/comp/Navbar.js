@@ -107,7 +107,7 @@ const Home = () => {
               <Link to="/login" className="login">
                 LOGIN
               </Link>
-              <Link to="/login" className="signin">
+              <Link to="/signup" className="signin">
                 SIGNUP
               </Link>
             </div>

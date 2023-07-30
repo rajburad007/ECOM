@@ -30,11 +30,8 @@ const SpecCategory = (props) => {
   let [n, setN] = useState(categoryMap);
   useEffect(() => {
     setN(categoryMap);
-
     radio1.current.checked = false;
     radio2.current.checked = false;
-    radio3.current.checked = false;
-    radio4.current.checked = false;
   }, [props.cat]);
   return (
     <>
@@ -72,31 +69,7 @@ const SpecCategory = (props) => {
             <img src={star} alt="" />
           </label>
         </div>
-        <div
-          className={`filter1 `}
-          onClick={() => {
-            let a = [];
-            categoryMap
-              .map((e) => {
-                return e.price;
-              })
-              .sort((a, b) => {
-                return a - b;
-              })
-              .map((e) => {
-                return e;
-              })
-              .filter((i) => {
-                n.map((e) => {
-                  if (i == e.price) {
-                    a.push(e);
-                  }
-                });
-              });
-
-            setN(a);
-          }}
-        >
+        {/* <div className={`filter1 `} onClick={() => {}}>
           <input
             ref={radio3}
             type="radio"
@@ -109,25 +82,24 @@ const SpecCategory = (props) => {
           className={`filter1 `}
           onClick={() => {
             let a = [];
-            categoryMap
-              .map((e) => {
-                return e.price;
-              })
-              .sort((a, b) => {
-                return b - a;
-              })
-              .map((e) => {
-                return e;
-              })
-              .filter((i) => {
-                n.map((e) => {
-                  if (i == e.price) {
-                    a.push(e);
-                  }
-                });
-              });
-
+            a.push(
+              n
+                .map((e) => {
+                  return e.price;
+                })
+                .sort((a, b) => {
+                  return b - a;
+                })
+                .filter((i) => {
+                  return n.map((j) => {
+                    if (i == j.price) {
+                      return j;
+                    }
+                  });
+                })
+            );
             setN(a);
+            console.log(n);
           }}
         >
           <input
@@ -137,14 +109,13 @@ const SpecCategory = (props) => {
             name="pricefilter"
           />
           <label htmlFor="pricefilterrev">&nbsp; hight to low</label>
-        </div>
+        </div> */}
         <button
           className="clearFilter"
           onClick={() => {
             radio1.current.checked = false;
             radio2.current.checked = false;
-            radio3.current.checked = false;
-            radio4.current.checked = false;
+
             setN(categoryMap);
           }}
         >

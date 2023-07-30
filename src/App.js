@@ -8,6 +8,7 @@ import Profile from "./comp/Profile";
 import Product from "./comp/Product.js";
 import Signup from "./comp/Signup";
 import Cart from "./comp/Cart.js";
+import LoginPage from "./comp/LoginPage.js";
 import CheckOut from "./comp/CheckOut.js";
 import { useEffect, createContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -125,7 +126,8 @@ function App() {
                   );
                 })
               : ""}
-            <Route path="/login" element={<Signup />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LoginPage />} />
 
             {isLogin || window.localStorage.getItem("isLogin") ? (
               <Route

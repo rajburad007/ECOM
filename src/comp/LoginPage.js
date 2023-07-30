@@ -5,7 +5,7 @@ import Footer from "./Footer.js";
 import { GlobalInfo } from "../App.js";
 import logo from "../icons/Logo.png";
 import { Link } from "react-router-dom";
-const Signup = () => {
+const LoginPage = () => {
   let [name, setName] = useState(null);
   let [pass, setPass] = useState(null);
   let [mail, setMail] = useState(null);
@@ -28,7 +28,7 @@ const Signup = () => {
     <>
       <Navbar />
       <div className="loginSec">
-        <h1>Sign up</h1>
+        <h1>Login</h1>
         <div className="logo">
           <img src={logo} alt="" />
         </div>
@@ -71,7 +71,7 @@ const Signup = () => {
             ref={password}
           />
 
-          <Link to={name && pass && mail ? "/" : "/signup"}>
+          <Link to={name && pass && mail ? "/" : "/login"}>
             <button
               className="submitBtn"
               type="submit"
@@ -82,8 +82,9 @@ const Signup = () => {
             </button>
           </Link>
         </form>
+
         <p>
-          Existing user? <Link to="/login">Login</Link>
+          New user? <Link to="/signup">Signup</Link>
         </p>
       </div>
       <Footer />
@@ -91,4 +92,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default LoginPage;
