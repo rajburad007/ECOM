@@ -76,6 +76,7 @@ function App() {
   useEffect(() => {
     getData();
     getDataCatgeory();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
