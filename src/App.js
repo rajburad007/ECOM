@@ -76,9 +76,10 @@ function App() {
   useEffect(() => {
     getData();
     getDataCatgeory();
-    window.scrollTo(0, 0);
   }, []);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
   return (
     <>
       <GlobalInfo.Provider
