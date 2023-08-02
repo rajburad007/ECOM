@@ -33,6 +33,13 @@ const SpecCategory = (props) => {
     radio1.current.checked = false;
     radio2.current.checked = false;
   }, [props.cat]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [props.cat]);
   return (
     <>
       <Navbar />

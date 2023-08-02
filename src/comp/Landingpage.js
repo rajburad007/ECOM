@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import slider1 from "../icons/slider1.png";
 import slider2 from "../icons/slider2.png";
@@ -9,7 +9,13 @@ import Slider from "./Slider.js";
 import ProductTile from "./ProductTile.js";
 const Landingpage = () => {
   const { data } = useContext(GlobalInfo);
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 100,
+      left: 100,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <div className="landingPage">

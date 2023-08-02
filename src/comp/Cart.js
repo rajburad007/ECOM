@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Navbar from "../comp/Navbar.js";
 import Footer from "../comp/Footer.js";
 import { GlobalInfo } from "../App.js";
@@ -6,6 +6,9 @@ import Bin from "../icons/bin.png";
 import "../styles/Cart.css";
 import { Link } from "react-router-dom";
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { arr, setLen, trackOrder, setTrackOrder } = useContext(GlobalInfo);
   let [r, setr] = useState(window.localStorage.getItem("arr"));
 

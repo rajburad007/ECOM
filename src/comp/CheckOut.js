@@ -14,7 +14,10 @@ const CheckOut = () => {
   let pay2 = useRef();
   let pay3 = useRef();
   let [checkPay, setCheckPay] = useState(false);
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   let [add, setAdd] = useState(window.localStorage.getItem("address"));
   let [pnum, setPnum] = useState(window.localStorage.getItem("phoneNumber"));
   let address = useRef();
